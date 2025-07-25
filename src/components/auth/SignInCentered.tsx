@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
+import Card from '@/components/ui/Card';
 import { EyeClosed, Eye } from 'lucide-react';
 
 export default function SignInCentered() {
@@ -10,11 +11,9 @@ export default function SignInCentered() {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
   return (
-    // Auth Container - Full screen centering  
-    <div className="min-h-screen flex items-center justify-center px-4">
-      {/* Auth Card - Figma Design Specs */}
-      <div className="w-full max-w-[420px] h-auto rounded-2xl px-6 py-10 md:p-10 bg-white shadow-[0_24px_48px_0_#919EAB29]">
+    <Card>
         <div className="flex flex-col gap-3 pb-8 text-center mx-auto">
           {/* SignIn Heading */}
           <h4 className="font-[family-name:var(--font-barlow)] text-text-primary text-2xl font-semibold leading-9 tracking-normal">
@@ -55,7 +54,7 @@ export default function SignInCentered() {
             />
             <label
               htmlFor="password"
-              className="floating-label text-sm  text-gray-600"
+              className="floating-label text-sm text-gray-600"
             >
               Password
             </label>
@@ -79,7 +78,6 @@ export default function SignInCentered() {
             Sign In
           </Button>
         </form>
-      </div>
-    </div>
+    </Card>
   );
 }
