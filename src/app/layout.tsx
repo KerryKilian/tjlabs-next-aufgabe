@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${inter.variable} ${publicSans.variable} antialiased`}
+        className={`${barlow.variable} ${inter.variable} ${publicSans.variable} font-sans antialiased`}
       >
         {children}
       </body>

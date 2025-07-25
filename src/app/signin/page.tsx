@@ -6,12 +6,6 @@ export const metadata: Metadata = {
   description: 'Sign in to your account',
 };
 
-/**
- * SignIn Page
- * 
- * This page renders the centered sign-in form based on the Figma design.
- * Uses the SignInCentered component for the actual UI implementation.
- */
 export default function SignInPage() {
   return <SignInCentered />;
 }
