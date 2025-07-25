@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
-import { EyeClosed, Eye } from 'lucide-react';
+import { EyeClosed, Eye } from '@solar-icons/react';
 
 export default function SignInCentered() {
   const [showPassword, setShowPassword] = useState(false);
@@ -64,7 +64,7 @@ export default function SignInCentered() {
               onClick={togglePasswordVisibility}
               className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600 hover:text-gray-800 focus:outline-none"
             >
-              {showPassword ? <Eye size={24} /> : <EyeClosed size={24} />}
+              {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
             </button>
           </div>
           
