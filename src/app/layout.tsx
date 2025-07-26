@@ -36,7 +36,7 @@ export default function RootLayout({
       >
         <Header/>
         {/* Card shall be visible at centre of whole page */}
-        <div className="fixed inset-0 flex justify-center items-center z-10">
+        <div className="fixed inset-0 flex justify-center items-center">
           <main className="w-full max-w-full flex flex-col justify-center">{children}</main>
         </div>
       </body>
