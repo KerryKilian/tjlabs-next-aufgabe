@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dokumentation
 
-## Getting Started
+## CSS
 
-First, run the development server:
+Es war spannend, an dieser Aufgabe zu arbeiten, da hier insbesondere die Herausforderung bestand, pixelgenau zu arbeiten. Wenn ich eigene Projekte bearbeite, dann kann ich mit dem Style schnell durchgehen, ohne auf exakte Pixelangaben zu achten. Deswegen musste ich mich hier damit einfinden. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Dabei ist mir aber mehrmals aufgefallen, dass im Figma oft Pixelangaben standen, während ich aber gelernt, möglichst ohne Pixelwerten zu arbeiten. Man sollte immer relative Werte nutzen, wie zum Beispiel "rem". Das ist dann auch im Sinne von Responsiveness. Derzeit ist das Formular nur responsive durch Tailwind Klassen wie md:p-10 in der Card Komponente.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Generell musste ich mich jedoch erstmal einfinden, wie ich das Projekt aufsetze. Denn ich habe selten mit Tailwind CSS gearbeitet und ich bevorzuge SCSS mit eigenen Dateien anstatt dem inline css direkt in den .tsx-Dateien. Dabei ist mir aufgefallen, dass ich gleich Inline Tailwind Klassen teilweise mehrfach geschrieben habe. Zum Beispiel haben viele Textfelder dieselben Eigenschaften, wie Größe, Farbe oder Weight. Da habe ich deswegen zum Schluss noch einmal refactored und eigene tailwind components dafür geschrieben. Denn ich versuche immer, Codedoppelungen zu verhindern. Dann lagere ich den Code lieber aus und referenziere ihn. Bei den Tailwind Klassen ist das zu sehen in der globals.css, bei der ich die Komponenten definiert habe. Ansonsten habe ich auch im Ordner ui/ wiederverwendbare Komponenten geschrieben, damit ich denselben Code nicht mehrfach schreiben musste. Dabei ist es sinnvoll, weitere children oder className Attribute in diese Komponenten mitgeben zu können.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Ich habe mich zur Bearbeitung mit Tailwind CSS entschieden, jedoch ist mir während der Bearbeitung aufgefallen, dass die Figma Styles in der Foundation auf die Material UI Dokumentation verweisen. Das heißt, ich hätte mir einiges an Arbeit sparen können, wenn ich nicht alle Komponenten selbst gestyled hätte, sondern die MUI Komponenten verwendet hätte. Denn so etwas wie das Input Feld mit dem animierten Label zum Beispiel muss nicht zwangsläufig selbst gebaut und gestyled werden. Hier hätte ich es von einer Bibliothek wie Material UI nutzen können.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Wie bin ich vorgegangen?
 
-## Learn More
+Ich bin komponentenweise vorgegangen. Zunächst habe ich mit der Signin-Card begonnen, dann mit der Verify-Card, dann mit dem Password-Generator und zum Schluss habe ich noch kleinere Fixes durchgeführt, die mir aufgefallen sind. Diese waren nicht zwingend nötig, waren aber sicherlich förderlich für den Code. Hier habe ich etwa noch den wiederverwendbaren FloatingInputWrapper gebaut oder die Tailwind Components. Dafür habe ich jedesmal auch einen eigenen git-Branch erstellt. Beispiel wäre feature/verify. Das ist zwar nicht nötig, wenn man allein an einem Projekt arbeitet. Aber ich habe mich daran gewöhnt, und wollte meine Arbeitsweise beibehalten. Außerdem hilft es auch dabei, im Main Branch nur den korrekten Code zu lagern und nicht irgendwelche unvollständigen Komponenten.
 
-To learn more about Next.js, take a look at the following resources:
+Beim Erstellen der Komponenten bin ich Schritt für Schritt jedes Element hindurchgegangen und habe dieses gleich gestyled. So wurde dann nach und nach die Komponente immer vollständiger.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Die Passwortgenerierung habe ich - wie gesagt - erst ersetllt, nachdem die SignIn-Komponente schon fertig war. Ich habe daraus eine eigene Komponente gemacht, da dies auch eine eigene Aufgabe war und ich die Form vom Generator gut trennen konnte. Hier musste ich etwas Nachdenken, da mir die Freiheit gegeben wurde, diese Komponente selbst zu stylen. Ich habe deshalb versucht, die vorhandenen Komponenten wiederzuverwenden, damit sich das ähnelt zu der restlichen Seite. Denn dadurch konnte ich den vorhandenen Button, IconButton und Text nutzen, den ich nicht neu definieren musste. Zum Schluss habe ich mich hier dann noch mit einer Animation befasst. Der Container mit dem generierten Passwort sollte animiert einfliegen. Generell arbeite ich auch so, dass zunächst das Gerüst stehen sollte - also das HTML mit dem Styling - und erst danach möchte ich die Animation angehen.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+In einer Rücksprache sollte ich dann auch Formvalidierung einbauen. Dies habe ich gemacht. Dabei habe ich den useState genutzt, um Fehlermeldungen anzuzeigen. Außerdem habe ich hier - wie auch bei allen anderen Komponenten - immer in die Foundation geschaut. Denn die Fehlermeldung war so nicht im Figma zu sehen. Auch hier hätte ich ein eigenes Styling aufsetzen können. Doch ich habe gesehen, dass in der Foundation schon ein Style dazu existiert. Das heißt, ich habe immer mal wieder in die Foundation geschaut, ob irgendwo der Style genauer definiert wurde als ich es in der einfachen UI zu der Seite im Figma sehe.
 
-## Deploy on Vercel
+Außerdem habe ich versucht, das Rendering im Auge zu behalten. Denn Nextjs bietet die Möglichkeit von Server Components. Das heißt, die Komponente wird schon auf dem Server gerendert, was beispielsweise gut für SEO ist. Gerade sind alle Komponenten clientseitig generiert, was natürlich zum einen am State liegt, der nur clientseitig funktioniert. Zum anderen funktioniert die Solar Icons Library nur clientseitig. Deswegen konnte ich den Header nicht serverseitig rendern lassen, obwohl da keine User Interaktivität herrscht. Ich hatte auch überlegt, eine andere Icon Library zu installieren, die auch serverseitig gerendert werden könnte. Jedoch wurde im Figma die Solar Icons Library genutzt, weshalb ich dabei geblieben bin. 
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Theoretisch könnte man die Komponenten noch weiter aufsplitten. Zum Beispiel könnte man noch den Header auf der Card serverseitig rendern, da hier nur statischer Text angezeigt wird. Jedoch habe ich belassen mit der Anmerkung, dass das möglich wäre, falls es gewollt ist.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Fazit
+
+Ich habe viel gelernt im Sinne des pixelgenauen Arbeitens. Zwar kannte ich Figma vorher schon, habe aber selten so wirklich pixelgenau gearbeitet. Ich würde auch denken, dass mein Ansatz mit Tailwind CSS noch ausbaufähig ist. Vielleicht ist es möglich, noch mehr eigene Komponentenstyles festzulegen, damit nicht so viele Klassen in einem HTML Tag stehen. Aber da wäre es wahrscheinlich einfacher, wenn ich in einem bestehenden Projekt sehe, wie das Styling aufgebaut ist. Dann ist es einfacher, dieses anzuwenden. 
+
+Ansonsten hatte ich kaum Schwierigkeiten mit den Komponenten. Es gab zwar immer mal wieder kleinere Probleme, die konnte ich jedoch gut lösen. Ich habe hier auch gelernt, den Style unbedingt umzusetzen, weil dieses so im Figma spezifiziert war. Das heißt, ich durfte nicht "aufgeben" und den Style anders lösen, damit es einfacher ist. Das heißt, ich konnte viel dazulernen, wie ich mich genau an das Design zu halten habe.
