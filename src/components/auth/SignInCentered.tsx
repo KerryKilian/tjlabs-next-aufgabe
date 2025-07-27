@@ -5,6 +5,7 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { EyeClosed, Eye, Copy } from '@solar-icons/react';
 import PasswordGenerator from './PasswordGenerator';
+import IconButton from '../ui/IconButton';
 
 export default function SignInCentered() {
   const [showPassword, setShowPassword] = useState(false);
@@ -67,7 +68,7 @@ export default function SignInCentered() {
                 onClick={togglePasswordVisibility}
                 className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600 hover:text-gray-800 focus:outline-none"
               >
-                {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
+                <IconButton>{showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}</IconButton>
               </button>
             </div>
 

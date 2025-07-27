@@ -1,20 +1,9 @@
+
 import React, { useState } from "react";
 import IconButton from "../ui/IconButton";
 import { Copy, CheckCircle } from "@solar-icons/react";
 import Button from "../ui/Button";
-
-function generatePassword() {
-    const used = new Set();
-    let password = "";
-    while (password.length < 6) {
-        const randomDigit = Math.floor(Math.random() * 10).toString();
-        if (!used.has(randomDigit)) {
-            used.add(randomDigit);
-            password += randomDigit;
-        }
-    }
-    return password;
-}
+import { generatePassword } from "@/utils/password";
 
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
