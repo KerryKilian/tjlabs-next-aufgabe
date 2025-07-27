@@ -1,11 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
 export default function Verify() {
   const [code, setCode] = useState(['', '', '', '', '', '']);
+  const router = useRouter();
 
   const handleInputChange = (index: number, value: string) => {
      // Only 1 character allowed
@@ -64,7 +66,10 @@ export default function Verify() {
                 <span className="text-primary">Don't have a code?</span>
                 <a href="#" className="font-semibold">Resend</a>
             </p>
-            <div className="flex items-center justify-center gap-2 mt-2 cursor-pointer">
+            <div
+              className="flex items-center justify-center gap-2 mt-2 cursor-pointer group"
+              onClick={() => router.push('/signin')}
+            >
               {/* Arrow Left Icon (Lucide) */}
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:text-opacity-80 transition-colors">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />

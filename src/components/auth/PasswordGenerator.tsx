@@ -38,6 +38,7 @@ export default function PasswordGenerator() {
           `}
         >
           <p>{password}</p>
+          {/* Show Copy Icon when clicked */}
           <IconButton aria-label={copied ? "Kopiert" : "Passwort kopieren"} onClick={handleCopy}>
             <span className={`transition-opacity duration-300 ${copied ? 'opacity-0 absolute' : 'opacity-100 relative'}`}>
               <Copy size={24} />

@@ -1,17 +1,25 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import { EyeClosed, Eye, Copy } from '@solar-icons/react';
 import PasswordGenerator from './PasswordGenerator';
 import IconButton from '../ui/IconButton';
 
+
 export default function SignInCentered() {
   const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    router.push('/verify');
   };
 
   return (
@@ -29,7 +37,7 @@ export default function SignInCentered() {
         
         <div className="flex flex-col gap-6">
           {/* SignIn Form */}
-          <form className="flex flex-col gap-6">
+          <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px]  flex items-end pt-2">
               <input
                 id="email"
