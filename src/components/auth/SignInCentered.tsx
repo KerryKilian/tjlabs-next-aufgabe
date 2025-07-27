@@ -4,15 +4,16 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
-import { EyeClosed, Eye, DangerTriangle } from '@solar-icons/react';
+import { EyeClosed, Eye } from '@solar-icons/react';
 import PasswordGenerator from './PasswordGenerator';
-import IconButton from '../ui/IconButton';
 import AlertMessage from '../ui/AlertMessage';
+import FloatingInputWrapper from '../ui/FloatingInputWrapper';
 
 // Signin component with signin form, password visibility toggle, and password generator
 
 export default function SignInCentered() {
   const [showPassword, setShowPassword] = useState(false);
+  const [passwordFocused, setPasswordFocused] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
@@ -64,7 +65,7 @@ export default function SignInCentered() {
           <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate>
             {/* Email */}
             <div>
-              <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px] flex items-end pt-2">
+              <FloatingInputWrapper>
                 <input
                   id="email"
                   name="email"
@@ -74,7 +75,7 @@ export default function SignInCentered() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   required
-                  autoComplete="email"
+                  autoComplete="email" // autofill for browsers
                 />
                 <label
                   htmlFor="email"
@@ -82,28 +83,30 @@ export default function SignInCentered() {
                 >
                   Email address
                 </label>
-              </div>
+              </FloatingInputWrapper>
               {/* Show Email Error Message */}
               {emailError && 
                 <AlertMessage>
-                  <span className="text-error  text-xs">{emailError}</span>
+                  <span className="text-error text-xs">{emailError}</span>
                 </AlertMessage>
               }
             </div>
             
             {/* Password */}
             <div>
-              <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px] flex items-end pt-2">
+              <FloatingInputWrapper>
                 <input
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-                  className={`floating-input w-full h-full bg-transparent border-0 focus:outline-none peer pr-12 ${passwordError ? 'border border-red-500' : ''}`}
-                  placeholder="6+ characters"
+                  className={`w-full h-full bg-transparent border-0 focus:outline-none peer pr-12 ${passwordError ? 'border border-red-500' : ''}`}
+                  placeholder={passwordFocused ? '6+ characters' : ' '}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   required
-                  autoComplete="current-password"
+                  autoComplete="current-password" // autofill for browsers
+                  onFocus={() => setPasswordFocused(true)}
+                  onBlur={() => setPasswordFocused(false)}
                 />
                 <label
                   htmlFor="password"
@@ -112,20 +115,20 @@ export default function SignInCentered() {
                   Password
                 </label>
                 {/* Eye Icon - Toggle Password Visibility */}
-                <IconButton
+                <button
                   type="button"
                   aria-label={showPassword ? "Passwort ausblenden" : "Passwort anzeigen"}
                   onClick={togglePasswordVisibility}
+                  tabIndex={-1}
                   className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600"
                 >
                   {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
-                </IconButton>
-              </div>
-
+                </button>
+              </FloatingInputWrapper>
               {/* Show Password Error Message */}
               {passwordError && 
                 <AlertMessage>
-                  <span className="text-error  text-xs">{passwordError}</span>
+                  <span className="text-error text-xs">{passwordError}</span>
                 </AlertMessage>
               }
             </div>
