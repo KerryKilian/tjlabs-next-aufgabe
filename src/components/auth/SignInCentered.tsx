@@ -8,6 +8,7 @@ import { EyeClosed, Eye } from '@solar-icons/react';
 import PasswordGenerator from './PasswordGenerator';
 import AlertMessage from '../ui/AlertMessage';
 import FloatingInputWrapper from '../ui/FloatingInputWrapper';
+import IconButton from '../ui/IconButton';
 
 // Signin component with signin form, password visibility toggle, and password generator
 
@@ -115,7 +116,7 @@ export default function SignInCentered() {
                   Password
                 </label>
                 {/* Eye Icon - Toggle Password Visibility */}
-                <button
+                <IconButton
                   type="button"
                   aria-label={showPassword ? "Passwort ausblenden" : "Passwort anzeigen"}
                   onClick={togglePasswordVisibility}
@@ -123,7 +124,7 @@ export default function SignInCentered() {
                   className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600"
                 >
                   {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
-                </button>
+                </IconButton>
               </FloatingInputWrapper>
               {/* Show Password Error Message */}
               {passwordError && 
