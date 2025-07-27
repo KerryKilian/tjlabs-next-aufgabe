@@ -5,6 +5,9 @@ import React from "react";
 import { Settings } from '@solar-icons/react'
 import IconButton from './IconButton';
 
+// Header component for the application header
+// Contains language selection and settings icon
+
 export default function Header() {
   return (
     <header className="w-full h-[64px] md:h-[72px] z-2">

@@ -9,6 +9,7 @@ import PasswordGenerator from './PasswordGenerator';
 import IconButton from '../ui/IconButton';
 import AlertMessage from '../ui/AlertMessage';
 
+// Signin component with signin form, password visibility toggle, and password generator
 
 export default function SignInCentered() {
   const [showPassword, setShowPassword] = useState(false);
@@ -26,6 +27,8 @@ export default function SignInCentered() {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
 
+  // Handle form submission
+  // Validate email and password, show error messages if invalid
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     let valid = true;
@@ -45,8 +48,8 @@ export default function SignInCentered() {
 
   return (
     <Card>
+        {/* SignIn Heading */}
         <div className="flex flex-col gap-3 pb-8 text-center mx-auto">
-          {/* SignIn Heading */}
           <h4 className="text-headline">
             Sign in
           </h4>
@@ -56,10 +59,10 @@ export default function SignInCentered() {
           </p>
         </div>
         
+        {/* Signin Form */}
         <div className="flex flex-col gap-6">
-          {/* SignIn Form */}
-
           <form className="flex flex-col gap-6" onSubmit={handleSubmit} noValidate>
+            {/* Email */}
             <div>
               <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px] flex items-end pt-2">
                 <input
@@ -80,6 +83,7 @@ export default function SignInCentered() {
                   Email address
                 </label>
               </div>
+              {/* Show Email Error Message */}
               {emailError && 
                 <AlertMessage>
                   <span className="text-error  text-xs">{emailError}</span>
@@ -87,40 +91,44 @@ export default function SignInCentered() {
               }
             </div>
             
+            {/* Password */}
+            <div>
+              <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px] flex items-end pt-2">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  className={`floating-input w-full h-full bg-transparent border-0 focus:outline-none peer pr-12 ${passwordError ? 'border border-red-500' : ''}`}
+                  placeholder="6+ characters"
+                  value={password}
+                  onChange={e => setPassword(e.target.value)}
+                  required
+                  autoComplete="current-password"
+                />
+                <label
+                  htmlFor="password"
+                  className="floating-label text-gray-600"
+                >
+                  Password
+                </label>
+                {/* Eye Icon - Toggle Password Visibility */}
+                <IconButton
+                  type="button"
+                  aria-label={showPassword ? "Passwort ausblenden" : "Passwort anzeigen"}
+                  onClick={togglePasswordVisibility}
+                  className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600"
+                >
+                  {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
+                </IconButton>
+              </div>
 
-            <div className="relative h-[53px] bg-[#919EAB14] rounded-lg pl-3 pr-[10px] flex items-end pt-2">
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? 'text' : 'password'}
-                className={`floating-input w-full h-full bg-transparent border-0 focus:outline-none peer pr-12 ${passwordError ? 'border border-red-500' : ''}`}
-                placeholder="6+ characters"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                required
-                autoComplete="current-password"
-              />
-              <label
-                htmlFor="password"
-                className="floating-label text-gray-600"
-              >
-                Password
-              </label>
-              {/* Eye Icon - Toggle Password Visibility */}
-              <IconButton
-                type="button"
-                aria-label={showPassword ? "Passwort ausblenden" : "Passwort anzeigen"}
-                onClick={togglePasswordVisibility}
-                className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600"
-              >
-                {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
-              </IconButton>
-            </div>
-            {passwordError && 
+              {/* Show Password Error Message */}
+              {passwordError && 
                 <AlertMessage>
                   <span className="text-error  text-xs">{passwordError}</span>
                 </AlertMessage>
-            }
+              }
+            </div>
 
             <div className="flex justify-end">            
               <a href="#" className="text-right">
@@ -132,6 +140,8 @@ export default function SignInCentered() {
               Sign In
             </Button>
           </form>
+
+          {/* Password Generator */}
           <PasswordGenerator />
         </div>
     </Card>

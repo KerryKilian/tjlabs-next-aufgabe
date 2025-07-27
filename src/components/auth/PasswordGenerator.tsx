@@ -5,6 +5,9 @@ import { Copy, CheckCircle } from "@solar-icons/react";
 import Button from "../ui/Button";
 import { generatePassword } from "@/utils/password";
 
+// PasswordGenerator component for generating and copying passwords
+// Uses a utility function to generate a random password
+
 export default function PasswordGenerator() {
   const [password, setPassword] = useState("");
   const [copied, setCopied] = useState(false);

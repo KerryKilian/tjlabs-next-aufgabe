@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow, Inter, Public_Sans } from "next/font/google";
+import { Barlow, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/ui/Header";
 
@@ -7,11 +7,6 @@ const barlow = Barlow({
   variable: "--font-barlow",
   subsets: ["latin"],
   weight: ["400", "600"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
 });
 
 const publicSans = Public_Sans({
@@ -32,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${inter.variable} ${publicSans.variable} font-sans antialiased min-h-screen flex flex-col text-body`}
+        className={`${barlow.variable} ${publicSans.variable} font-sans antialiased min-h-screen flex flex-col text-body`}
       >
         <Header/>
         {/* Card shall be visible at centre of whole page */}

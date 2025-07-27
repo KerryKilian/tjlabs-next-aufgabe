@@ -5,6 +5,9 @@ import { useRouter } from 'next/navigation';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
+// Verify component for email verification
+// Contains a 6-digit code input for user verification
+
 export default function Verify() {
   const [code, setCode] = useState(['', '', '', '', '', '']);
   const router = useRouter();
@@ -34,8 +37,8 @@ export default function Verify() {
 
   return (
     <Card>
+      {/* SignIn Header and Description */}
         <div className="flex flex-col gap-3 pb-8 text-center mx-auto">
-          {/* SignIn Heading */}
           <h4 className="text-headline">
             Check your email
           </h4>
@@ -44,6 +47,7 @@ export default function Verify() {
           </p>
         </div>
 
+        {/* Signin Form */}
         <div className='flex flex-col gap-6'>
             <form className="flex flex-col gap-6">
               <div className="grid grid-cols-6 gap-2 mx-auto">
@@ -70,7 +74,7 @@ export default function Verify() {
               className="flex items-center justify-center gap-2 mt-2 cursor-pointer group"
               onClick={() => router.push('/signin')}
             >
-              {/* Arrow Left Icon (Lucide) */}
+              {/* Arrow Left Icon */}
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:text-opacity-80 transition-colors">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>

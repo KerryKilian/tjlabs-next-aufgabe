@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
 
+// Card component for reusable card layout
+// Used for centering content with a shadowed background
+
 interface CardProps {
   children: ReactNode;
   className?: string;

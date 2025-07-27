@@ -1,5 +1,8 @@
 import { ButtonHTMLAttributes, ReactNode } from 'react';
 
+// Button component for reusable button layout
+// Used for primary actions with consistent styling
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }

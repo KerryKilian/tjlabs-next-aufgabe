@@ -1,5 +1,7 @@
 import React from "react";
 
+// IconButton component for reusable icon buttons
+
 interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;

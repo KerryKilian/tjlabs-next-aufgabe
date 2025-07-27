@@ -1,6 +1,7 @@
 import { DangerTriangle } from '@solar-icons/react';
-
 import { HTMLAttributes, ReactNode } from 'react';
+
+// AlertMessage component for displaying error messages in forms
 
 interface DivProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
