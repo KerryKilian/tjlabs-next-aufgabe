@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${inter.variable} ${publicSans.variable} font-sans antialiased min-h-screen flex flex-col`}
+        className={`${barlow.variable} ${inter.variable} ${publicSans.variable} font-sans antialiased min-h-screen flex flex-col text-body`}
       >
         <Header/>
         {/* Card shall be visible at centre of whole page */}

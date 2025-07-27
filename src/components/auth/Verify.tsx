@@ -34,11 +34,11 @@ export default function Verify() {
     <Card>
         <div className="flex flex-col gap-3 pb-8 text-center mx-auto">
           {/* SignIn Heading */}
-          <h4 className="font-[family-name:var(--font-barlow)] text-text-primary text-2xl font-semibold leading-9 tracking-normal">
+          <h4 className="text-headline">
             Check your email
           </h4>
-          <p className="flex items-center justify-center gap-1 text-sm">
-            <span className="text-text-secondary text-sm leading-[22px]">We've emailed a 6-digit confirmation code. Please enter the code in below box to verify your email.</span>
+          <p className="flex items-center justify-center gap-1">
+            <span className="text-secondary">We've emailed a 6-digit confirmation code. Please enter the code in below box to verify your email.</span>
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Verify() {
                   type="text"
                   maxLength={1}
                   value={code[index]}
-                  className="h-[53px] w-full bg-[#919EAB14] rounded-[8px] text-center border-0 focus:outline-none font-normal text-sm leading-[22px] tracking-normal"
+                  className="h-[53px] w-full bg-[#919EAB14] rounded-[8px] text-center border-0 focus:outline-none"
                   onChange={(e) => handleInputChange(index, e.target.value)}
                   onKeyDown={(e) => handleKeyDown(index, e)}
                 />
@@ -60,16 +60,16 @@ export default function Verify() {
             </div>
             <Button type="submit">Verify</Button>
             </form>
-            <p className="flex items-center justify-center gap-1 text-sm">
-                <span className="text-text-secondary text-sm leading-[22px]">Don't have a code?</span>
-                <a href="#" className="text-text-primary text-sm font-semibold leading-[22px] ">Resend</a>
+            <p className="flex items-center justify-center gap-1">
+                <span className="text-primary">Don't have a code?</span>
+                <a href="#" className="font-semibold">Resend</a>
             </p>
             <div className="flex items-center justify-center gap-2 mt-2 cursor-pointer">
               {/* Arrow Left Icon (Lucide) */}
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="text-primary w-4 h-4 group-hover:text-opacity-80 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="w-4 h-4 group-hover:text-opacity-80 transition-colors">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
               </svg>
-              <span className="font-semibold text-sm leading-[22px] text-primary group-hover:text-opacity-80 transition-colors">Return to sign in</span>
+              <span className="font-semibold group-hover:text-opacity-80 transition-colors">Return to sign in</span>
             </div>
         </div>
     </Card>

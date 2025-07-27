@@ -11,6 +11,10 @@ module.exports = {
         sans: ['var(--font-public-sans)', 'system-ui', 'sans-serif'],
         barlow: ['var(--font-barlow)', 'system-ui', 'sans-serif'],
       },
+      colors: {
+        primary: 'var(--text-primary)',
+        secondary: 'var(--text-secondary)',
+    },
     },
   },
   plugins: [],

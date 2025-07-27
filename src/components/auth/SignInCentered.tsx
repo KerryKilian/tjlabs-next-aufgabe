@@ -18,12 +18,12 @@ export default function SignInCentered() {
     <Card>
         <div className="flex flex-col gap-3 pb-8 text-center mx-auto">
           {/* SignIn Heading */}
-          <h4 className="font-[family-name:var(--font-barlow)] text-text-primary text-2xl font-semibold leading-9 tracking-normal">
+          <h4 className="text-headline">
             Sign in
           </h4>
-          <p className="flex items-center justify-center gap-1 text-sm">
-            <span className="text-text-secondary text-sm leading-[22px]">Don't have an account?</span>
-            <a href="#" className="text-textprimary text-sm font-semibold leading-[22px] ">Get started</a>
+          <p className="flex items-center justify-center gap-1">
+            <span className="text-secondary">Don't have an account?</span>
+            <a href="#" className="font-semibold">Get started</a>
           </p>
         </div>
         
@@ -41,7 +41,7 @@ export default function SignInCentered() {
               />
               <label
                 htmlFor="email"
-                className="floating-label text-sm text-gray-600"
+                className="floating-label text-gray-600"
               >
                 Email address
               </label>
@@ -58,7 +58,7 @@ export default function SignInCentered() {
               />
               <label
                 htmlFor="password"
-                className="floating-label text-sm text-gray-600"
+                className="floating-label text-gray-600"
               >
                 Password
               </label>
@@ -74,7 +74,7 @@ export default function SignInCentered() {
             </div>
 
             <div className="flex justify-end">            
-              <a href="#" className="font-normal text-sm leading-[22px] text-right text-primary">
+              <a href="#" className="text-right">
                 Forgot password?
               </a>
             </div>

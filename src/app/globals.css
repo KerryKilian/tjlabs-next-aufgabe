@@ -2,33 +2,25 @@
 @import "../styles/components.css";
 
 :root {
-  --color-primary: #000000;
-  --color-background: #abff81;
-  --text-primary: #1C252E;
-  --text-secondary: #637381;
-  
-  /* Typography */
-  --font-family-primary: var(--font-public-sans), system-ui, sans-serif; /* Public Sans für Body Text */
-  --font-family-secondary: var(--font-barlow), system-ui, sans-serif;      /* Barlow für Headlines */
-
-
-  --shadow-card: 0 24px 48px 0 #919EAB29;
+  --color-button-primary: #000000;
+  --color-text-primary: #1C252E;
+  --color-text-secondary: #637381;
 }
 
-@theme inline {
+@theme {
   /* Map CSS variables to Tailwind theme */
-  --color-primary: var(--color-primary);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --background: var(--color-background);
-  
-  /* Typography */
-  --font-sans: var(--font-family-primary);     
-  --font-primary: var(--font-family-primary);  
-  --font-secondary: var(--font-family-secondary); /* Headlines: Barlow */
-
+  --color-button-primary: var(--color-button-primary);
+  --color-primary: var(--color-text-primary);
+  --color-secondary: var(--color-text-secondary); 
 }
 
-body {
-  font-family: var(--font-family-primary); /* Public Sans als Standard */
+@layer components {
+  .text-body {
+    @apply font-[family-name:var(--font-public-sans)] text-sm leading-[22px] text-primary;
+  }
+
+  .text-headline {
+    @apply font-[family-name:var(--font-barlow)] text-2xl font-semibold leading-9;
+  }
+
 }

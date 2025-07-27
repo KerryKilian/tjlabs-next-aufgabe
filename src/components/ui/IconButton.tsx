@@ -2,6 +2,7 @@ import React from "react";
 
 interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  className?: string;
 }
 
 export default function IconButton({ children, className = '', ...props }: IconButtonProps) {
