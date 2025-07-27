@@ -63,13 +63,14 @@ export default function SignInCentered() {
                 Password
               </label>
               {/* Eye Icon - Toggle Password Visibility */}
-              <button
+              <IconButton
                 type="button"
+                aria-label={showPassword ? "Passwort ausblenden" : "Passwort anzeigen"}
                 onClick={togglePasswordVisibility}
-                className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+                className="absolute right-0 top-1/2 -translate-y-1/2 p-2 text-gray-600"
               >
-                <IconButton>{showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}</IconButton>
-              </button>
+                {showPassword ? <Eye size={24} /> : <EyeClosed weight='Outline' size={24} />}
+              </IconButton>
             </div>
 
             <div className="flex justify-end">            
