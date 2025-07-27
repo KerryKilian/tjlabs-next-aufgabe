@@ -43,7 +43,7 @@ export default function Verify() {
             Check your email
           </h4>
           <p className="flex items-center justify-center gap-1">
-            <span className="text-secondary">We've emailed a 6-digit confirmation code. Please enter the code in below box to verify your email.</span>
+            <span className="text-secondary">We&apos;ve emailed a 6-digit confirmation code. Please enter the code in below box to verify your email.</span>
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function Verify() {
             <Button type="submit">Verify</Button>
             </form>
             <p className="flex items-center justify-center gap-1">
-                <span className="text-primary">Don't have a code?</span>
+                <span className="text-primary">Don&apos;t have a code?</span>
                 <a href="#" className="font-semibold">Resend</a>
             </p>
             <div

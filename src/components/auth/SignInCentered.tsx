@@ -56,7 +56,7 @@ export default function SignInCentered() {
             Sign in
           </h4>
           <p className="flex items-center justify-center gap-1">
-            <span className="text-secondary">Don't have an account?</span>
+            <span className="text-secondary">Don&apos;t have an account?</span>
             <a href="#" className="font-semibold">Get started</a>
           </p>
         </div>
