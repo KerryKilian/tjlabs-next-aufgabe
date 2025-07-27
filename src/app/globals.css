@@ -5,6 +5,7 @@
   --color-button-primary: #000000;
   --color-text-primary: #1C252E;
   --color-text-secondary: #637381;
+  --color-text-error: #FF3632;
 }
 
 @theme {
@@ -12,6 +13,7 @@
   --color-button-primary: var(--color-button-primary);
   --color-primary: var(--color-text-primary);
   --color-secondary: var(--color-text-secondary); 
+  --color-error: var(--color-text-error);
 }
 
 @layer components {
